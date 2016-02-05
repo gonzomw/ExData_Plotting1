@@ -50,7 +50,7 @@ plot_four <- function(tbf=NA) {
         }
         
         interesting <- interestingTimes(tbf)
-        
+        png(width=504, height=504, file = "plot4.png")
         par(mfrow = c(2,2))
         plot(interesting$Time, interesting$Global_active_power, type = "l", 
                 xlab = " ", ylab = "Global Active Power") 
@@ -63,13 +63,11 @@ plot_four <- function(tbf=NA) {
         lines(interesting$Time, interesting$Sub_metering_2, col = "red") 
         lines(interesting$Time, interesting$Sub_metering_3, col = "blue")
         legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
-               col=c("black", "red", "blue"), lty = 1, bty = "n", cex = 0.6,
-               inset= c(0.15,0))
-
+               col=c("black", "red", "blue"), lty = 1, bty = "n")
+        
         plot(interesting$Time, interesting$Global_reactive_power, type = "l", 
                 xlab = "datetime", ylab = "Global_reactive_power")
         
-        dev.copy(png, file="plot4.png", width=504, height=504)
         dev.off()
 
 }

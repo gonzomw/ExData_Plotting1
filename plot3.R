@@ -46,16 +46,14 @@ plot_three <- function(tbf = NA) {
         
         
         interesting <- interestingTimes(tbf)
-        
+        png(width=504, height=504, file = "plot3.png")
         par(mfrow = c(1,1))
         plot(interesting$Time, interesting$Sub_metering_1, type = "l", 
              ylab = "Energy sub metering" , xlab = " ")
         lines(interesting$Time, interesting$Sub_metering_2, col = "red")
         lines(interesting$Time, interesting$Sub_metering_3, col = "blue")
         legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),  lty = 1,
-               col=c("black", "red", "blue"),  cex=0.9, inset = c(0.1,0))
-        
-        dev.copy(png, file="plot3.png", width=504, height=504)
+               col=c("black", "red", "blue"))
         dev.off()
 }
 
