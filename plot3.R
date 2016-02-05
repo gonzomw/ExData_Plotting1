@@ -53,7 +53,7 @@ plot_three <- function(tbf = NA) {
         lines(interesting$Time, interesting$Sub_metering_2, col = "red")
         lines(interesting$Time, interesting$Sub_metering_3, col = "blue")
         legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),  lty = 1,
-               col=c("black", "red", "blue"))
+               col=c("black", "red", "blue"), inset = c(0.1,0))
         
         dev.copy(png, file="plot3.png", width=504, height=504)
         dev.off()
